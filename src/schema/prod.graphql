@@ -1,13 +1,8 @@
  type Query {
      GetAllProduct: [Data]
-     GetAllOrder: [Order]
+     
 }
 
-type Order {
-    id: Int,
-    transcode: String,
-    created: String
-}
 
 type Data {
     id: Int,
@@ -22,7 +17,6 @@ type Mutation {
     CreateProduct(name: String stock:Int price:Float): Data
     UpdateProduct(id:Int name: String stock:Int price:Float): Data
     DeleteProduct(id:Int):Message
-    CreateOrder(transcode: String): Order
 }
 
 type Message {

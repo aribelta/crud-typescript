@@ -1,0 +1,14 @@
+
+type Query {
+    GetAllOrder: [Order]
+}
+
+type Order {
+    id: Int,
+    transcode: String,
+    created: String
+}
+
+type Mutation {
+    CreateOrder(id:Int transcode: String): Order
+}

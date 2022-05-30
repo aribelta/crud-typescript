@@ -3,11 +3,13 @@ import { ApolloServer, gql } from 'apollo-server';
 import { readFileSync } from 'fs';
 import * as dotenv from 'dotenv';
 import { initModels,Product, ProductCreationAttributes, Order, OrderCreationAttributes } from './models/init-models';
+import {v4 as uuidv4} from 'uuid';
 
 
 
 
-const typeDefs = readFileSync("./src/prod.graphql").toString('utf-8');
+const typeProd = readFileSync("./src/schema/prod.graphql").toString('utf-8');
+const typeOrder = readFileSync("./src/schema/order.graphql").toString('utf-8');
 
 dotenv.config();
 console.log(process.env);
@@ -76,17 +78,18 @@ const resolvers = {
 		CreateOrder: async(_parent:any, args:any) => {
 			const now = new Date();
 			const createOrders: OrderCreationAttributes = await {
-				transcode: args.transcode,
+				transcode: uuidv4(),
 				created : now
 			}
 			return Order.create(createOrders);
 		}
 	}
+
 }
 
 // import models into sequelize instance
 const server = new ApolloServer({
-    typeDefs,
+    typeDefs : [typeProd, typeOrder],
     resolvers,
 });
 
