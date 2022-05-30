@@ -1,0 +1,30 @@
+ type Query {
+     GetAllProduct: [Data]
+     GetAllOrder: [Order]
+}
+
+type Order {
+    id: Int,
+    transcode: String,
+    created: String
+}
+
+type Data {
+    id: Int,
+    name: String,
+    stock: Int,
+    price: Float,
+    created: String
+}
+
+type Mutation {
+    GetDetailProduct(id: Int): Data
+    CreateProduct(name: String stock:Int price:Float): Data
+    UpdateProduct(id:Int name: String stock:Int price:Float): Data
+    DeleteProduct(id:Int):Message
+    CreateOrder(transcode: String): Order
+}
+
+type Message {
+    message: String
+}
