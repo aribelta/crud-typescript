@@ -6,7 +6,7 @@ export interface ProductAttributes {
   name: string;
   stock: number;
   price: number;
-  created: Date;
+  created: string;
 }
 
 export type ProductPk = "id";
@@ -19,7 +19,7 @@ export class Product extends Model<ProductAttributes, ProductCreationAttributes>
   name!: string;
   stock!: number;
   price!: number;
-  created!: Date;
+  created!: string;
 
 
   static initModel(sequelize: Sequelize.Sequelize): typeof Product {
@@ -43,7 +43,7 @@ export class Product extends Model<ProductAttributes, ProductCreationAttributes>
       allowNull: false
     },
     created: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, {

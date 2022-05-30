@@ -10,5 +10,5 @@ type Order {
 }
 
 type Mutation {
-    CreateOrder(id:Int transcode: String): Order
+    CreateOrder(transcode: String): Order
 }

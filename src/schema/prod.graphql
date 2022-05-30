@@ -1,10 +1,7 @@
  type Query {
-     GetAllProduct: [Data]
-     
+     GetAllProduct: [Product]
 }
-
-
-type Data {
+type Product {
     id: Int,
     name: String,
     stock: Int,
@@ -12,10 +9,18 @@ type Data {
     created: String
 }
 
+# input InputProduct {
+#     id: Int,
+#     name: String,
+#     stock: Int,
+#     price: Float,
+#     created: String
+# }
+
 type Mutation {
-    GetDetailProduct(id: Int): Data
-    CreateProduct(name: String stock:Int price:Float): Data
-    UpdateProduct(id:Int name: String stock:Int price:Float): Data
+    GetDetailProduct(id: Int): Product
+    CreateProduct(name: String stock:Int price:Float): Product
+    UpdateProduct(id:Int name: String stock:Int price:Float): Product
     DeleteProduct(id:Int):Message
 }
 

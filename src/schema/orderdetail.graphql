@@ -1,0 +1,12 @@
+
+type Query {
+    OrderDetail: [OrderDetail]
+}
+
+type OrderDetail {
+  id: Int
+  productid: Int
+  quantity: String
+  price: Float
+  Order_id: Int
+}
